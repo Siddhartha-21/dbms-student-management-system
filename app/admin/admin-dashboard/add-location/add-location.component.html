@@ -1,0 +1,69 @@
+<div class="row mt-3  justify-content-center">
+    <div class="col-md-11 card" >
+        <div class="row " style="background-color: transparent;color: #7879F1;margin: 15px;padding: 10px;border: 2px solid;">
+            <div class="col-md-12 d-flex justify-content-center" >
+                <h2>Add Location</h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <form name="form" [formGroup] = "form" (ngSubmit) = "form.valid && onSubmit()" class="card m-2">
+                            <div class="col-md-12">
+                                <div class="m-1">
+                                    <input class="input form-control" formControlName="location_name" [ngClass]="{ 'is-invalid':form.get('location_name').touched && form.get('location_name').invalid}" name="location_name" type="text" placeholder="Location Name"  autocomplete="off" required>
+                                    <div class="invalid-feedback">
+                                        <div>
+                                            This Field is required!!
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="m-1">
+                                    <input class="input form-control" formControlName="area" [ngClass]="{ 'is-invalid':form.get('area').touched && form.get('area').invalid}" name="area" type="text" placeholder="Address" required>
+                                    <div class="invalid-feedback">
+                                        <div>
+                                            This Field is required!!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-2 mb-5 ">
+                                <div class="m-1 mt-4">
+                                    <button class="button" type="submit" [disabled]="!form.valid">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                        <div class="m-2">
+                            <h3 class="font-weight-bold">Locations Available:</h3>
+                        </div>
+                        
+                        <div class="card m-2">
+                            <div class="row p-2">
+                                <div class="col">
+                                    <b>Location</b>
+                                </div>
+                                <div class="col">
+                                   <b>Area</b>
+                                </div>
+                            </div>
+                            <hr class="m-1">
+                            <div class="row p-2" *ngFor='let location of locations$'>
+                                <div class="col" >
+                                    {{location.location_name}}
+                                </div>
+                                <div class="col">
+                                    {{location.area}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

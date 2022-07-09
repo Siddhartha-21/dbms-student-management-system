@@ -1,0 +1,27 @@
+.sidebar{
+    box-shadow: 5px 0 5px -5px #333 ;
+    height: 90vh;
+}
+
+.button{
+    border: none;
+    width: 700px;
+    color: black;
+    height: 70px;
+    border: 2px solid #7879F1;
+    background-color: white;
+    font-weight: 900;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 25px;
+}
+
+.navBtn {
+    margin-top: 40px;
+}
+
+.button:hover {
+    background-color: #7879F1;
+    color: white;
+}
+  

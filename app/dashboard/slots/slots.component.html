@@ -1,0 +1,77 @@
+<div class="row mt-3  justify-content-center">
+  <div class="col-md-11 card" style="padding-top: 14px;" >
+    <div class="row " style="background-color: #7879F1;color: white;">
+      <div class="col-md-12 d-flex justify-content-center" style="background-color: white; color: black; padding-top: 7px;" >
+        <h1><strong>Available Slots</strong></h1>
+      </div>
+    </div>
+    <hr>
+    
+
+    <!-- Location Selection -->
+
+    <div>
+      <div >
+          <h2>Select your desired Location</h2>
+          <select class="form-control"   name="location_name" id="location_name">
+                  <option *ngFor='let location of locations$' value="{{location.location_name}}">{{location.location_name}}</option>                                  
+          </select>
+      </div>
+    </div>
+
+    <!-- End of Location Selection -->
+
+    <!-- Card -->
+
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <div class="row mb-3">
+          <div class="col-md-12 overflow-auto" style="height: 35rem;">
+            <div>
+              <div *ngFor='let location of locations$' class="card">
+                <div class="card-header flex-row" >
+                  <div class="row mt-3">
+                    <div class="col-md-3">
+                      <h2><b>{{location.location_name}}</b></h2>
+                    </div>
+                    <div class="col">
+                      <h3><b>Total Slots :</b> {{location.slots}}</h3>
+                    </div>
+                  </div>
+                </div>             
+                <div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-auto mr-auto">
+                        <h4><b> Location Address:</b></h4> <p>{{location.area}}</p>
+                        <hr>
+                        <h4><b> Price Per Hour </b></h4>
+                        <div *ngFor='let vehicle of vehicles$'>
+                          <p>{{vehicle.vehicle_type}} : {{vehicle.cost}} Rs</p>
+                        </div>
+                      </div>
+                      
+                      <div class="col-auto .btn">
+                        <button class="button" type="button" routerLink="/dashboard/bookslot/{{location.locationid}}">
+                          Book Now
+                        </button>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End of Card -->
+
+
+    
+  </div>
+</div>
+

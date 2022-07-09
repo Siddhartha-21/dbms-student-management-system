@@ -1,0 +1,68 @@
+<div class="row mt-3  justify-content-center">
+    <div class="col-md-11 card" style="padding-top: 12px;" >
+        <div class="row " style="background-color: #7879F1;color: white;">
+            <div class="col-md-12 d-flex justify-content-center" style="background-color: white; color: black; padding-top: 7px;" >
+                <h1><strong>My Bookings</strong></h1>
+            </div>
+        </div>
+        <hr>
+        <!-- bootstrap Cards Start -->
+
+        
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <div class="row mb-3">
+                    <div class="col-md-12 overflow-auto" style="height: 35rem;">
+                        <div class="accordion" id="accordionExample">
+                            <div *ngIf='!show'>
+                                <div *ngFor='let booking of bookings$'  class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h3><b>Location :</b> {{booking.locationid}}</h3>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <h3><b>Date :</b> {{booking.date}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-auto mr-auto">
+                                                  <b>Slot No :</b> {{booking.slotid}} <br> 
+                                                  <b>Vehicle Type :</b> {{booking.vehicle_type}} <br> 
+                                                  <b>Duration :</b> {{booking.duration}} hours <br> 
+                                                  <div *ngIf="booking.paid != 0">
+                                                    <b>Cost :</b> {{booking.cost}} rupees
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto" *ngIf='booking.paid == 0'>
+                                                  <button class="button" (click) = 'makePayment(25)' *ngIf="!showMe"> make Payment</button>
+                                                  <button class="button" *ngIf="showMe" (click) = 'endBooking(booking.bookingid)'>Checkout</button>
+                                                </div>
+                                                <div class="col-auto" *ngIf='booking.paid != 0'>
+                                                    <p class="text-success font-weight-bold">Booking Completed</p>
+                                                  </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div *ngIf='show'>
+                                <h2>
+                                    No Bookings Found...
+                                </h2>
+                                <button class="button" routerLink='/dashboard' > Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Cards End -->
+    </div>
+</div>
+
+

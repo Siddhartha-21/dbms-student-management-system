@@ -1,0 +1,15 @@
+.sidebar{
+    box-shadow: 5px 0 5px -5px #333 ;
+    height: 90vh;
+}
+
+.button{
+    border: none;
+    width: 220px;
+    margin-top: 10px;
+    color: white;
+    height: 35px;
+    background-color: #7879F1;
+    font-weight: 900;
+    border-radius: 5px;
+}
